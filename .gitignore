@@ -89,3 +89,5 @@ release.properties
 
 # Jekyll
 _site/
+.sass-cache/
+Gemfile.lock
