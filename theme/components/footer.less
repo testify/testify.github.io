@@ -1,0 +1,66 @@
+/*
+ * Footer
+ *
+ * Separated section of content at the bottom of all pages, save the homepage.
+ */
+ html, body {
+ height: 100%;
+ }
+// Needed for large footer
+html, body, .container { height: 100%; }
+body > .container { height: auto; min-height: 100%; }
+.container {
+  padding-bottom:  3em;
+}
+
+// Needed for small footer
+// .container {
+//   min-height: 100%;
+//   height: auto !important;
+//   height: 100%;
+//   margin: 0 auto -4em;
+// }
+// .push{
+//   height: 4em;
+// }
+.bs-footer {
+  // padding-top: 40px;
+  // padding-bottom: 30px;
+  // margin-top: 100px;
+  // Sticky larger footer
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+  margin-top: -3em;
+
+  // Sticky small footer
+  color: #777;
+  // text-align: center;
+  border-top: 1px solid #e5e5e5;
+  // height: 4em;
+}
+.bs-footer .footer-text-right{
+  text-align: right;
+}
+
+.footer-links {
+  margin: 10px 0;
+  padding-left: 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .bs-footer {
+    text-align: left;
+  }
+  .bs-footer p {
+    margin-bottom: 0;
+  }
+}

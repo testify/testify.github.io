@@ -1,0 +1,23 @@
+---
+layout: default.hbs
+---
+<div class="row">
+  <div class="col-md-3">
+    <div class="bs-sidebar hidden-print" role="complementary">
+      {{#each categories }}
+      <span class="nav-section-title">{{capitalizeEach category}}</span>
+      <ul class="nav bs-sidenav">
+            {{#withSort this.pages 'data.title'}}
+            <li><a href="{{relative ../../page.dest this.dest}}">{{this.data.title}}</a></li>
+            {{/withSort}}
+      </ul>
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-md-9 content" role="main">
+    {{! wrapped with 'wordcount' for wordcount plugin }}
+    <div class="wordcount">
+      {{> body }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> head }}
+  </head>
+  <body>
+
+    <a class="sr-only" href="#content">Skip to main content</a>
+    <!-- Navigation component -->
+    {{> global-header }}
+
+    <div class="container bs-docs-container">
+      {{> body }}
+      <div class="push"></div>
+    </div>
+
+    <!-- Footer -->
+    {{> global-footer }}
+
+    <!-- JS and analytics only. -->
+    {{> javascripts }}
+  </body>
+</html>
