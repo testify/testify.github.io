@@ -16,9 +16,11 @@ layouts:          <%= site.templates %>/layouts
 layout:           default.hbs
 
 # Site Sections
-docs:             content/docs/**/*.md
-content:          content/*.md
-
+content:          content
+docs:             <%= site.content %>/docs
+blog:             <%= site.content %>/blog
+about:            <%= site.content %>/about
+main:             <%= site.content %>/main
 
 # Extensions
 helpers:

@@ -18,7 +18,8 @@ npm-debug.log
 TODO.md
 
 node_modules
-_gh_pages
+lib
+dist
 vendor
 temp
 tmp

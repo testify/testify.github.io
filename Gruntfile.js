@@ -66,14 +66,45 @@ module.exports = function(grunt) {
         plugins: '<%= site.plugins %>',
         collections: [{ name: 'categories', sortBy: 'title', sortOrder: 'descending'}]
       },
-      // example: {
-      //   files: {'<%= site.dest %>/': ['<%= site.templates %>/*.hbs']}
-      // },
       docs: {
-        files: {'<%= site.dest %>/': ['<%= site.docs %>']}
+        files: [
+          {
+            expand: true,
+            cwd: '<%= site.docs %>',
+            src: ['**/*.{hbs,md}'],
+            dest: '<%= site.dest %>/docs'
+          }
+        ]
       },
-      content: {
-        files: {'<%= site.dest %>/': ['<%= site.content %>']}
+      blog: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= site.blog %>',
+            src: ['**/*.{hbs,md}'],
+            dest: '<%= site.dest %>/blog'
+          }
+        ]
+      },
+      about: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= site.about %>',
+            src: ['**/*.{hbs,md}'],
+            dest: '<%= site.dest %>/about'
+          }
+        ]
+      },
+      main: {
+        file: [
+          {
+            expand: true,
+            cwd: '<%= site.main %>',
+            src: ['**/*.{hbs,md}'],
+            dest: '<%= site.dest %>'
+          }
+        ]
       }
     },
 
