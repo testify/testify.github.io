@@ -155,7 +155,7 @@ module.exports = function(grunt) {
         tasks: ['jshint', 'nodeunit']
       },
       site: {
-        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs', 'content/**/*.md'],
+        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'theme/**/*.less', 'templates/**/*.hbs', 'content/**/*.md'],
         tasks: ['assemble']
       }
     },
@@ -193,7 +193,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('docs', ['readme', 'sync']);
 
-  grunt.registerTask('serve', ['assemble', 'connect:server', 'watch']);
+  grunt.registerTask('serve', ['assemble', 'less', 'connect:server', 'watch']);
 
   // Delete this conditional logic after first run.
   // if(!grunt.file.exists('_gh_pages_/assets/fonts') && !grunt.file.exists('_gh_pages_/assets/js')) {
