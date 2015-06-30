@@ -97,7 +97,7 @@ module.exports = function(grunt) {
         ]
       },
       main: {
-        file: [
+        files: [
           {
             expand: true,
             cwd: '<%= site.main %>',
@@ -155,10 +155,21 @@ module.exports = function(grunt) {
         tasks: ['jshint', 'nodeunit']
       },
       site: {
-        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs'],
-        tasks: ['design']
+        files: ['Gruntfile.js', '<%= less.options.paths %>/*.less', 'templates/**/*.hbs', 'content/**/*.md'],
+        tasks: ['assemble']
       }
-    }
+    },
+
+    connect: {
+        server: {
+          options: {
+            base: '<%= site.dest %>',
+            port: 8000,
+            hostname: '*',
+            livereload: true
+          }
+        }
+      }
   });
 
   // Load npm plugins to provide necessary tasks.
@@ -166,6 +177,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-readme');
   grunt.loadNpmTasks('grunt-sync-pkg');
@@ -180,6 +192,8 @@ module.exports = function(grunt) {
   grunt.registerTask('design', ['clean', 'assemble', 'less:site', 'watch:site']);
 
   grunt.registerTask('docs', ['readme', 'sync']);
+
+  grunt.registerTask('serve', ['assemble', 'connect:server', 'watch']);
 
   // Delete this conditional logic after first run.
   // if(!grunt.file.exists('_gh_pages_/assets/fonts') && !grunt.file.exists('_gh_pages_/assets/js')) {

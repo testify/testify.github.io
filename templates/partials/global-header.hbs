@@ -2,12 +2,12 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a href="index.html" class="navbar-brand">{{site.brand}}</a>
+        <a href="{{relative page.dest "/"}}" class="navbar-brand">{{site.brand}}</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="{{relative about/index.html "{{site.dest}}"}}">About</a></li>
-        <li><a href="/docs/">Docs</a></li>
-        <li><a href="/blog/">Blog</a></li>
+        <li><a href="{{relative page.dest "dist/about"}}">About</a></li>
+        <li><a href="{{relative page.dest "dist/docs"}}">Docs</a></li>
+        <li><a href="{{relative page.dest "dist/blog"}}">Blog</a></li>
       </ul>
     </div>
   </nav>
