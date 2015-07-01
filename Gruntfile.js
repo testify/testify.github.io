@@ -200,7 +200,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-readme');
   grunt.loadNpmTasks('grunt-sync-pkg');
   grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('assemble');
