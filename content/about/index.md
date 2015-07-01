@@ -1,4 +1,6 @@
 ---
 title: About Testify
-layout: default.hbs
+layout: info.hbs
 ---
+
+Coming Soon!

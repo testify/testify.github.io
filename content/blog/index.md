@@ -1,4 +1,6 @@
 ---
 title: Testify Blog
-layout: default.hbs
+layout: info.hbs
 ---
+
+Coming Soon!

@@ -1,5 +1,6 @@
 ---
 title: Testify It!
-layout: default.hbs
+layout: main.hbs
 ---
-Woooo!
+
+More Info Coming Soon! For now check the docs section

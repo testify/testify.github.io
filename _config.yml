@@ -58,7 +58,7 @@ download:
 
 brand:            Testify
 title:            Testify
-tagline:             Stand up for your API's
+tagline:             Stand up for your API's!
 
 version:          <%= pkg.version %>
 description:      <%= pkg.description %>

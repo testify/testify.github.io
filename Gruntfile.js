@@ -169,8 +169,28 @@ module.exports = function(grunt) {
             livereload: true
           }
         }
+      },
+      buildcontrol: {
+        options: {
+          dir: '<%= site.dest %>',
+          commit: true,
+          push: true,
+          message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        },
+        pages: {
+          options: {
+            remote: 'git@github.com:testify/testify.github.io.git',
+            branch: 'master'
+          }
+        },
+        local: {
+          options: {
+            remote: '../',
+            branch: 'master'
+          }
+        }
       }
-  });
+    });
 
   // Load npm plugins to provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -178,6 +198,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-readme');
   grunt.loadNpmTasks('grunt-sync-pkg');
