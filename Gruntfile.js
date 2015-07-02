@@ -208,21 +208,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('assemble');
 
-  // Build HTML, compile LESS and watch for changes. You must first run "bower install"
-  // or install Bootstrap to the "vendor" directory before running this command.
-  grunt.registerTask('design', ['clean', 'assemble', 'less:site', 'watch:site']);
-
   grunt.registerTask('docs', ['sync']);
+  grunt.registerTask('build', ['clean', 'jshint', 'bower:install', 'copy', 'assemble', 'less', 'docs']);
 
   grunt.registerTask('serve', ['assemble', 'less', 'connect:server', 'watch']);
-
-  grunt.registerTaks('deploy', ['buildControl:pages'])
-
-  // Delete this conditional logic after first run.
-  // if(!grunt.file.exists('_gh_pages_/assets/fonts') && !grunt.file.exists('_gh_pages_/assets/js')) {
-  //   grunt.registerTask('default', ['setup', 'clean', 'jshint', 'copy:assets', 'assemble', 'less', 'docs']);
-  // } else {
-    // Use this going forward.
-    grunt.registerTask('default', ['clean', 'jshint', 'bower:install', 'copy', 'assemble', 'less', 'docs']);
-  // }
+  grunt.registerTask('deploy', ['build', 'buildControl:pages']);
+  grunt.registerTask('default', ['build']);
 };
