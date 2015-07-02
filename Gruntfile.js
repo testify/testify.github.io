@@ -146,9 +146,13 @@ module.exports = function(grunt) {
           {expand: true, cwd: '<%= bootstrap %>/dist/fonts', src: ['*.*'], dest: '<%= site.assets %>/fonts/'},
           {expand: true, cwd: '<%= bootstrap %>/dist/js',    src: ['*.*'], dest: '<%= site.assets %>/js/'},
         ]
+      },
+      cname: {
+        files: [
+          {expand: true, cwd: '<%= site.main %>', src: ['*CNAME*'], dest: '<%= site.dest %>'}
+        ]
       }
     },
-
     watch: {
       all: {
         files: ['<%= jshint.all %>'],
@@ -204,14 +208,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('assemble');
 
-  // Run this task once, then delete it as well as all of the "once" targets.
-  grunt.registerTask('setup', ['copy:once', 'clean:once']);
-
   // Build HTML, compile LESS and watch for changes. You must first run "bower install"
   // or install Bootstrap to the "vendor" directory before running this command.
   grunt.registerTask('design', ['clean', 'assemble', 'less:site', 'watch:site']);
 
-  grunt.registerTask('docs', ['readme', 'sync']);
+  grunt.registerTask('docs', ['sync']);
 
   grunt.registerTask('serve', ['assemble', 'less', 'connect:server', 'watch']);
 
@@ -220,6 +221,6 @@ module.exports = function(grunt) {
   //   grunt.registerTask('default', ['setup', 'clean', 'jshint', 'copy:assets', 'assemble', 'less', 'docs']);
   // } else {
     // Use this going forward.
-    grunt.registerTask('default', ['clean', 'jshint', 'bower:install', 'copy:assets', 'assemble', 'less', 'docs']);
+    grunt.registerTask('default', ['clean', 'jshint', 'bower:install', 'copy', 'assemble', 'less', 'docs']);
   // }
 };
