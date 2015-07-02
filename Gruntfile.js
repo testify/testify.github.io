@@ -212,6 +212,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build', ['clean', 'jshint', 'bower:install', 'copy', 'assemble', 'less', 'docs']);
 
   grunt.registerTask('serve', ['assemble', 'less', 'connect:server', 'watch']);
-  grunt.registerTask('deploy', ['build', 'buildControl:pages']);
+  grunt.registerTask('deploy', ['build', 'buildcontrol:pages']);
   grunt.registerTask('default', ['build']);
 };
