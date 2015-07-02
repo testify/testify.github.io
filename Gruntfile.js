@@ -174,11 +174,23 @@ module.exports = function(grunt) {
           }
         }
       },
+      'gh-pages': {
+        options: {
+          dotfiles: 'true',
+          base: '<%= site.dest %>',
+          branch: 'master'
+        },
+        src: '**/*'
+      },
       buildcontrol: {
         options: {
           dir: '<%= site.dest %>',
           commit: true,
           push: true,
+          force: true,
+          branch: 'master',
+          remoteBranch: 'master',
+          connectCommits: 'false',
           message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
         },
         pages: {
@@ -202,7 +214,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-build-control');
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-sync-pkg');
   grunt.loadNpmTasks('assemble-less');
@@ -212,6 +224,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build', ['clean', 'jshint', 'bower:install', 'copy', 'assemble', 'less', 'docs']);
 
   grunt.registerTask('serve', ['assemble', 'less', 'connect:server', 'watch']);
-  grunt.registerTask('deploy', ['build', 'buildcontrol:pages']);
+  grunt.registerTask('deploy', ['build', 'gh-pages']);
   grunt.registerTask('default', ['build']);
 };
