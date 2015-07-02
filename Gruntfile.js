@@ -216,6 +216,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve', ['assemble', 'less', 'connect:server', 'watch']);
 
+  grunt.registerTaks('deploy', ['buildControl:pages'])
+
   // Delete this conditional logic after first run.
   // if(!grunt.file.exists('_gh_pages_/assets/fonts') && !grunt.file.exists('_gh_pages_/assets/js')) {
   //   grunt.registerTask('default', ['setup', 'clean', 'jshint', 'copy:assets', 'assemble', 'less', 'docs']);
